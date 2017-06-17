@@ -52,6 +52,6 @@ dependencies {
     compile 'org.greenrobot:greendao:3.2.2' // add library
 //    compile 'com.squareup.retrofit2:retrofit:2.3.0'
 //    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
-    compile 'com.squareup.retrofit2:retrofit:2.1.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+//    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+//    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
 }

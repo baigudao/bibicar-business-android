@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#fafafa"
+              android:orientation="vertical">
+
+    <!--标题栏-->
+    <include layout="@layout/title_bar"/>
+
+    <!--FrameLayout-->
+    <FrameLayout
+        android:id="@+id/fl_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <!--底部：RadioGroup-->
+    <RadioGroup
+        android:id="@+id/rg_main"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:background="@drawable/background_tab"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_che_hang"
+            style="@style/bottom_tag_style"
+            android:drawableTop="@drawable/rb_che_hang_selector"
+            android:text="车行"/>
+
+        <RadioButton
+            android:id="@+id/rb_staff"
+            style="@style/bottom_tag_style"
+            android:drawableTop="@drawable/rb_staff_selector"
+            android:text="员工"/>
+
+        <RadioButton
+            android:id="@+id/rb_platform"
+            style="@style/bottom_tag_style"
+            android:drawableTop="@drawable/rb_platform_selector"
+            android:text="平台"/>
+
+    </RadioGroup>
+
+</LinearLayout>
