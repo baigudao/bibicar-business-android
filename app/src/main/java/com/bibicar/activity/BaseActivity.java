@@ -3,10 +3,15 @@ package com.bibicar.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
+import com.bibicar.BaseApplication;
 import com.bibicar.fragment.BaseFragment;
 import com.bibicar.util.Constant;
+
+import java.util.List;
 
 /**
  * Created by jackie on 2017/6/3 10:11.
@@ -66,6 +71,24 @@ public class BaseActivity extends AppCompatActivity {
         } else {
             finish();
         }
+    }
+
+    /**
+     * 获取当前可见Fragment
+     *
+     * @return
+     */
+    public BaseFragment getVisibleFragment() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        List<Fragment> fragments = fragmentManager.getFragments();
+        if (fragments == null) {
+            return null;
+        }
+        for (Fragment fragment : fragments) {
+            if (fragment != null && fragment.isVisible())
+                return (BaseFragment) fragment;
+        }
+        return BaseApplication.getCurFragment();
     }
 
 }

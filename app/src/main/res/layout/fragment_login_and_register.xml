@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@android:color/white">
 
     <ImageView
         android:id="@+id/iv_image1"
         android:layout_width="100dp"
-        android:layout_height="170dp"
+        android:layout_height="180dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
         android:scaleType="fitXY"
@@ -21,7 +22,7 @@
         android:layout_marginTop="100dp"
         android:background="@drawable/background_login_change"
         android:text="登录"
-        android:textColor="#ffffff"
+        android:textColor="@drawable/text_color_change"
         android:textSize="16sp"/>
 
     <Button
@@ -31,9 +32,9 @@
         android:layout_below="@id/btn_login"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="注册"
-        android:textColor="#658DF8"
         android:background="@drawable/background_register_change"
+        android:text="注册"
+        android:textColor="@drawable/text_color_change_register"
         android:textSize="16sp"/>
 
     <ImageView
@@ -62,8 +63,9 @@
             android:id="@+id/tv_recommend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:clickable="true"
             android:text="BiBiCar个人版"
-            android:textColor="#658DF8"
+            android:textColor="@drawable/text_color_change_register"
             android:textSize="12sp"/>
 
     </LinearLayout>

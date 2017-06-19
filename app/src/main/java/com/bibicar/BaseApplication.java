@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.bibicar.bean.DaoMaster;
 import com.bibicar.bean.DaoSession;
+import com.bibicar.fragment.BaseFragment;
 import com.blankj.utilcode.util.Utils;
 import com.squareup.leakcanary.LeakCanary;
 
@@ -16,6 +17,7 @@ import com.squareup.leakcanary.LeakCanary;
 public class BaseApplication extends Application {
 
     private static DaoSession daoSession;
+    private static BaseFragment curFragment;
 
     @Override
     public void onCreate() {
@@ -51,5 +53,13 @@ public class BaseApplication extends Application {
 
     public static DaoSession getDaoSession() {
         return daoSession;
+    }
+
+    public static void setCurFragment(BaseFragment baseFragment) {
+        curFragment = baseFragment;
+    }
+
+    public static BaseFragment getCurFragment() {
+        return curFragment;
     }
 }

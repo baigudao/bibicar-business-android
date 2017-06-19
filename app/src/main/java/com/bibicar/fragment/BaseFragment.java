@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bibicar.activity.BaseActivity;
+
 /**
  * Created by jackie on 2017/6/3 10:15.
  * QQ : 971060378
@@ -89,4 +91,24 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
      */
     protected void initData() {
     }
+
+    /**
+     * 跳转到新的页面
+     *
+     * @param pagerClass
+     * @param bundle
+     */
+    public void gotoPager(final Class<?> pagerClass, final Bundle bundle) {
+        if (mContext instanceof BaseActivity) {
+            ((BaseActivity) mContext).gotoPager(pagerClass, bundle);
+        }
+    }
+
+    /**
+     * 返回，如果stack中还有Fragment的话，则返回stack中的fragment，否则 finish当前的Activity
+     */
+    public void goBack() {
+        ((BaseActivity) getActivity()).goBack();
+    }
+
 }
