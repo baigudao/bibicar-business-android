@@ -1,4 +1,22 @@
 <resources>
     <string name="app_name">BibiCar</string>
     <string name="article_information">\n1.精英销售曝光：名车行销售精英的故事记录，通过具体事例体现该销售的诚信买卖与优质服务 \n\n2.车行参与的活动：体现企业活跃度 \n\n3.车行新到车辆：最新最快速的车辆展示，将更全面的曝光与最快速的牵走 \n\n4.交易成功车辆的故事记录：车行的销售能力强，实力强的最直接体现； \n\n5.车辆分析：车辆的检测、车辆性能分析</string>
+    <string name="free_get">免费获取</string>
+
+    <string name="More_popup_FirstBtnTitle">Delete</string>
+    <string name="More_popup_SecondBtnTitle">Edit</string>
+    <string name="More_popup_ShareToFB">Share to Facebook</string>
+    <string name="More_popup_UnFollow">UnFollow</string>
+    <string name="More_popup_ReSend">Try again</string>
+    <string name="cancel">取消</string>
+    <string name="take_picture">拍照</string>
+    <string name="take_from_album">从手机相册选择</string>
+
+    <!--takephoto库中的自定义String字符串-->
+    <string name="album_view">选择图片</string>
+    <string name="image_view">单击选择</string>
+    <string name="add">确定</string>
+    <string name="selected">已选</string>
+    <string name="limit_exceeded">最多能选 %d 张</string>
+
 </resources>

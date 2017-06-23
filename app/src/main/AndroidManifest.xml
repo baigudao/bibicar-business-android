@@ -3,6 +3,7 @@
           package="com.bibicar">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
     <application
@@ -28,7 +29,9 @@
 
         </activity>
 
-        <activity android:name=".activity.EmptyActivity"/>
+        <activity android:name=".activity.EmptyActivity"
+                  android:screenOrientation="portrait"
+                  android:windowSoftInputMode="stateHidden"/>
 
     </application>
 

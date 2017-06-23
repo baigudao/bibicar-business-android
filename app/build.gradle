@@ -39,9 +39,10 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:design:24.2.1'
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
-    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
+    compile project(':QiNiuLib')
+    //    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'
+    //    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
+    //    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
     compile 'com.blankj:utilcode:1.7.1'
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
     compile 'com.github.chrisbanes:PhotoView:2.0.0'
@@ -49,9 +50,8 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'jp.wasabeef:glide-transformations:2.0.1'
     compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.3'
-    compile 'org.greenrobot:greendao:3.2.2' // add library
-//    compile 'com.squareup.retrofit2:retrofit:2.3.0'
-//    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
-//    compile 'com.squareup.retrofit2:retrofit:2.1.0'
-//    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'org.greenrobot:greendao:3.2.2'
+    // add library
+    compile 'com.zhy:okhttputils:2.6.2'
+    compile 'com.jph.takephoto:takephoto_library:4.0.3'
 }

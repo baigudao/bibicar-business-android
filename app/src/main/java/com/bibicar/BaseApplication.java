@@ -7,7 +7,11 @@ import com.bibicar.bean.DaoMaster;
 import com.bibicar.bean.DaoSession;
 import com.bibicar.fragment.BaseFragment;
 import com.blankj.utilcode.util.Utils;
-import com.squareup.leakcanary.LeakCanary;
+import com.zhy.http.okhttp.OkHttpUtils;
+
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.OkHttpClient;
 
 /**
  * Created by jackie on 2017/6/3 10:03.
@@ -27,10 +31,22 @@ public class BaseApplication extends Application {
         Utils.init(this);
 
         //LeakCanary初始化
-        LeakCanary.install(this);
+        //        LeakCanary.install(this);
 
         //配置GreenDao数据库
         configureGreenDao();
+
+        //配置OKHttp
+        configureOkHttp();
+    }
+
+    private void configureOkHttp() {
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .connectTimeout(10000L, TimeUnit.MILLISECONDS)
+                .readTimeout(10000L, TimeUnit.MILLISECONDS)
+                //其他配置
+                .build();
+        OkHttpUtils.initClient(okHttpClient);
     }
 
     /**

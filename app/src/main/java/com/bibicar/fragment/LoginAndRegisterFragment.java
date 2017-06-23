@@ -3,7 +3,6 @@ package com.bibicar.fragment;
 import android.view.View;
 
 import com.bibicar.R;
-import com.blankj.utilcode.util.ToastUtils;
 
 import static com.bibicar.R.id.btn_login;
 
@@ -16,7 +15,6 @@ public class LoginAndRegisterFragment extends BaseFragment {
 
     @Override
     protected int getLayoutId() {
-        //        BarUtils.hideStatusBar(this);
         return R.layout.fragment_login_and_register;
     }
 
@@ -31,10 +29,10 @@ public class LoginAndRegisterFragment extends BaseFragment {
     public void onClick(View v) {
         switch (v.getId()) {
             case btn_login:
-                ToastUtils.showLong("登录");
+                gotoPager(LoginFragment.class, null);
                 break;
             case R.id.btn_register:
-                gotoPager(RegisterFragment.class,null);
+                gotoPager(RegisterFragment.class, null);
                 break;
             case R.id.tv_recommend:
                 //                Toast.makeText(mContext, "bibibc", Toast.LENGTH_SHORT).show();

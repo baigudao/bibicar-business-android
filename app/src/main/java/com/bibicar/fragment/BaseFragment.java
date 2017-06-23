@@ -3,19 +3,19 @@ package com.bibicar.fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.bibicar.activity.BaseActivity;
+import com.jph.takephoto.app.TakePhotoFragment;
 
 /**
  * Created by jackie on 2017/6/3 10:15.
  * QQ : 971060378
  * Used as : Fragment的基类
  */
-public abstract class BaseFragment extends Fragment implements View.OnClickListener {
+public abstract class BaseFragment extends TakePhotoFragment implements View.OnClickListener {
 
     /**
      * 上下文

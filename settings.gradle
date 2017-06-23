@@ -1,1 +1,3 @@
-include ':app'
+include ':app', ':QiNiuLib'
+include ':ViewPagerIndicatorLib'
+include ':sample'

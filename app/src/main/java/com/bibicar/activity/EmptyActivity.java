@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 
 import com.bibicar.BaseApplication;
 import com.bibicar.R;
@@ -15,7 +16,7 @@ import com.bibicar.util.Constant;
  * QQ : 971060378
  * Used as : 空的Activity
  */
-public class EmptyActivity extends BaseActivity{
+public class EmptyActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,5 +41,18 @@ public class EmptyActivity extends BaseActivity{
         ft.addToBackStack(null);
         ft.commitAllowingStateLoss();
         BaseApplication.setCurFragment(fragment);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (getVisibleFragment() != null) {
+                getVisibleFragment().goBack();
+            } else {
+                finish();
+            }
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

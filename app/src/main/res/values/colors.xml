@@ -3,4 +3,60 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="half_transparent">#A0000000</color>
+    <color name="color_255_255_255">#ffffff</color>
+    <color name="color_194_158_103">#c29e67</color>
+    <color name="color_104_100_95">#68645F</color>
+    <color name="color_204_154_104">#CC9A68</color>
+    <color name="color_53_54_55">#353637</color>
+    <color name="color_0_0_0">#000000</color>
+    <color name="color_111_111_111">#6f6f6f</color>
+    <color name="color_97_97_97">#616161</color>
+    <color name="color_239_239_239">#efefef</color>
+    <color name="color_88_0_0_0">#88000000</color>
+    <color name="color_128_128_128">#808080</color>
+    <color name="color_244_244_244">#f4f4f4</color>
+    <color name="color_0_0_255">#0000ff</color>
+
+    <color name="car_color_1">#333333</color>
+    <color name="car_color_2">#e80202</color>
+    <color name="car_color_3">#707070</color>
+    <color name="car_color_4">#ff368b</color>
+    <color name="car_color_5">#d7d7d7</color>
+    <color name="car_color_6">#b106b9</color>
+    <color name="car_color_8">#1cacfb</color>
+    <color name="car_color_9">#ebc098</color>
+    <color name="car_color_10">#37d500</color>
+    <color name="car_color_11">#fece00</color>
+    <color name="car_color_12">#8e5f08</color>
+    <color name="car_color_13">#ff9934</color>
+    <color name="car_color_14">#000000</color>
+    <color name="car_color_15">#88bdbdbd</color>
+
+    <color name="color_gray_line">#EDEDED</color>
+    <color name="color_yellow_btn">#D5A65E</color>
+
+    <color name="color_home_top">#F7F7F7</color>
+
+    <color name="color_pulltorefresh_header">#323232</color>
+
+    <color name="background_gray">#F8F8F8</color>
+
+    <color name="divider">#E5E5E5</color>
+    <color name="shadow">#AAEBEBEB</color>
+    <color name="common_bg">#FAFAFA</color>
+    <color name="content_bg">#F3F3F3</color>
+    <color name="gray">#8c8c8c</color>
+    <color name="gray_deep">#5c5c5c</color>
+    <color name="alpha_gray">#CC646464</color>
+    <color name="theme_gray">#646464</color>
+    <color name="text_color_wallet">#3a3a3a</color>
+
+    <color name="article_title">#1D1C1A</color>
+    <color name="color_tab">#AEAEAE</color>
+
+
+    <color name="multiple_image_select_primaryDark">#1D1C1A</color>
+
 </resources>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="1">
+
+    <View
+        android:id="@+id/view_full"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0"
+        android:background="@android:color/black"
+        android:orientation="vertical"/>
+
+    <LinearLayout
+        android:id="@+id/pop_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/color_244_244_244"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:text="标题"
+            android:textSize="18dp"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_255_255_255"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnFirst"
+                style="@style/PopupWindowBtnStyle"
+                android:background="@drawable/background_popup_window_change"
+                android:text="@string/More_popup_FirstBtnTitle"/>
+
+            <View
+                android:id="@+id/popupFirstLine"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/color_239_239_239"/>
+
+            <Button
+                android:id="@+id/btnSecond"
+                style="@style/PopupWindowBtnStyle"
+                android:background="@drawable/background_popup_window_change"
+                android:text="@string/More_popup_SecondBtnTitle"/>
+
+            <View
+                android:id="@+id/popupSecondLine"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/color_239_239_239"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/btnThird"
+                style="@style/PopupWindowBtnStyle"
+                android:visibility="gone"/>
+
+            <View
+                android:id="@+id/popupThirdLine"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/color_239_239_239"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/btnFourth"
+                style="@style/PopupWindowBtnStyle"
+                android:visibility="gone"/>
+
+            <View
+                android:id="@+id/popupFourthLine"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/color_239_239_239"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/btnFifth"
+                style="@style/PopupWindowBtnStyle"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/popupFifthLine"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_239_239_239"/>
+
+        <Button
+            android:id="@+id/btnCancel"
+            style="@style/PopupWindowBtnStyle"
+            android:background="@drawable/background_popup_window_change"
+            android:text="@string/cancel"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

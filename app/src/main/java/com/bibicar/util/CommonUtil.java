@@ -1,10 +1,10 @@
 package com.bibicar.util;
 
 import android.content.Context;
-import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
+import com.blankj.utilcode.util.DeviceUtils;
 import com.blankj.utilcode.util.SPUtils;
 
 /**
@@ -22,19 +22,19 @@ public class CommonUtil {
      * @param context
      * @return
      */
-    static public String getDeviceId(Context context) {
+    public static String getDeviceId(Context context) {
         String deviceId = SPUtils.getInstance().getString(Constant.DEVICE_ID);
         if (TextUtils.isEmpty(deviceId)) {
             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
             deviceId = telephonyManager.getDeviceId();
             if (deviceId == null) {
-                deviceId = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID); // *** use for tablets
+                deviceId = DeviceUtils.getAndroidID();// *** use for tablets
                 if (deviceId == null) {
                     deviceId = "deviceId";
                 }
-                return "deviceId";
+                return deviceId;
             } else {
-                SPUtils.getInstance().put(Constant.DEVICEID, deviceId);
+                SPUtils.getInstance().put(Constant.DEVICE_ID, deviceId);
                 return deviceId;
             }
         } else {
