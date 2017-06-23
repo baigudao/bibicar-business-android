@@ -1,0 +1,21 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        //applicationId "com.qiniu.android"
+        minSdkVersion 15
+        targetSdkVersion 24
+    }
+
+    lintOptions {
+        warning 'InvalidPackage'
+    }
+}
+
+dependencies {
+    compile 'com.squareup.okhttp3:okhttp:3.2.0'
+    compile 'com.qiniu:happy-dns:0.2.7'
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+}
