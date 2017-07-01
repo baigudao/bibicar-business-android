@@ -1,11 +1,16 @@
 package com.bibicar.util;
 
 import android.content.Context;
+import android.os.Environment;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.widget.Toast;
 
 import com.blankj.utilcode.util.DeviceUtils;
 import com.blankj.utilcode.util.SPUtils;
+
+import java.io.File;
+import java.io.FileOutputStream;
 
 /**
  * Created by jackie on 2017/6/19 11:34.
@@ -39,6 +44,27 @@ public class CommonUtil {
             }
         } else {
             return deviceId;
+        }
+    }
+
+    /**
+     * 向SD卡写入数据
+     *
+     * @param str
+     */
+    public static void writeToSDCard(Context context, String str) {
+        try {
+            // 判断是否存在SD卡
+            if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+                // 获取SD卡的目录
+                File sdDire = Environment.getExternalStorageDirectory();
+                FileOutputStream outFileStream = new FileOutputStream(sdDire.getCanonicalPath() + "/test.txt");
+                outFileStream.write(str.getBytes());
+                outFileStream.close();
+                Toast.makeText(context, "储存成功！", Toast.LENGTH_SHORT).show();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

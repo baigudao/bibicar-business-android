@@ -175,28 +175,16 @@ public class RegisterFragment extends BaseFragment {
         if (EmptyUtils.isEmpty(files)) {
             ToastUtils.showLong("请上传名片或车行照片");
         } else {
-            if (files.get(0) == null) {
+            if (EmptyUtils.isEmpty(files.get(0))) {
                 ToastUtils.showLong("请上传个人名片");
                 return;
             }
-            if (files.get(1) == null) {
+            if (EmptyUtils.isEmpty(files.get(1))) {
                 ToastUtils.showLong("请上传车行照片");
                 return;
             }
             ToastUtils.showLong("成功");
         }
-
-        //        if (EmptyUtils.isEmpty(files)){
-        //            ToastUtils.showLong("请上传名片和车行照片");
-        //        }
-        //        if (files.get(0) == null) {
-        //            ToastUtils.showLong("请上传个人名片");
-        //            return;
-        //        }
-        //        if (files.get(1) == null) {
-        //            ToastUtils.showLong("请上传车行照片");
-        //            return;
-        //        }
 
         //        OkHttpUtils.post()
         //                .url(Constant.postFileToken)
@@ -340,7 +328,7 @@ public class RegisterFragment extends BaseFragment {
     }
 
     private void showSelectWindow() {
-        MorePopupWindow morePopupWindow = new MorePopupWindow(getActivity(), new MorePopupWindow.MorePopupWindowClickListener() {
+        MorePopupWindow morePopupWindow = new MorePopupWindow(mContext, new MorePopupWindow.MorePopupWindowClickListener() {
 
             @Override
             public void onFirstBtnClicked() {

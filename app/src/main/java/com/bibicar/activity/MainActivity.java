@@ -28,8 +28,6 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //                        setContentView(R.layout.fragment_home);//首页页面
-        //        setContentView(R.layout.fragment_content_customization);//内容定制页面
         //初始化View
         initView();
         //初始化Fragment

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#fafafa"
+              android:orientation="vertical">
+
+    <include layout="@layout/title_bar"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp">
+
+        <ImageView
+            android:id="@+id/iv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/title3x"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/iv1"
+            android:text="视讯"
+            android:textColor="#3a3a3a"
+            android:textSize="15sp"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/video_string"
+        android:textColor="#3a3a3a"
+        android:textSize="13sp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btn_start_customization"
+            android:layout_width="300dp"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/background_login_change"
+            android:text="开始定制"
+            android:textColor="@drawable/text_color_change"
+            android:textSize="16sp"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

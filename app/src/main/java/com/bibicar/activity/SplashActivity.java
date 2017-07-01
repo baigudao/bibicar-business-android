@@ -8,12 +8,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.text.TextUtils;
 
 import com.bibicar.R;
 import com.bibicar.fragment.LoginAndRegisterFragment;
 import com.bibicar.util.CommonUtil;
 import com.bibicar.util.Constant;
+import com.blankj.utilcode.util.EmptyUtils;
 import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ScreenUtils;
 import com.blankj.utilcode.util.ToastUtils;
@@ -50,10 +50,10 @@ public class SplashActivity extends Activity {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             //SDK版本大于等于23，也就是Android 6.0
-            requestPermission();//请求权限
+            requestPermission();//请求权限  XiaoMi6.0.1
         } else {
             //SDK版本小于23的走这
-            afterRequestPermission();//请求权限之后
+            afterRequestPermission();//请求权限之后 MeiZu5.1
         }
     }
 
@@ -105,7 +105,7 @@ public class SplashActivity extends Activity {
 
     private void registerApp() {
         String device_identifier = SPUtils.getInstance().getString(Constant.DEVICE_IDENTIFIER);
-        if (TextUtils.isEmpty(device_identifier)) {
+        if (EmptyUtils.isEmpty(device_identifier)) {
             String device_id = CommonUtil.getDeviceId(this);//设备id
             String device_resolution = ScreenUtils.getScreenWidth() + "*" + ScreenUtils.getScreenHeight();//设备分辨率
             String device_sys_version = Constant.DEVICE_ANDROID + Build.VERSION.SDK_INT;//版本号
@@ -145,9 +145,16 @@ public class SplashActivity extends Activity {
                         }
                     });
         }
-        //如果用户没有登录，就进入登录注册页面
-        Intent intent = new Intent(SplashActivity.this, EmptyActivity.class);
-        intent.putExtra(Constant.FRAGMENT_NAME, LoginAndRegisterFragment.class.getName());
+        Intent intent;
+        boolean is_user_login = SPUtils.getInstance().getBoolean(Constant.IS_USER_LOGIN);
+        if (is_user_login) {
+            //如果用户登录过，就直接进入主页面
+            intent = new Intent(SplashActivity.this, MainActivity.class);
+        } else {
+            //如果用户没有登录过，就进入登录注册页面
+            intent = new Intent(SplashActivity.this, EmptyActivity.class);
+            intent.putExtra(Constant.FRAGMENT_NAME, LoginAndRegisterFragment.class.getName());
+        }
         startActivity(intent);
         finish();
     }

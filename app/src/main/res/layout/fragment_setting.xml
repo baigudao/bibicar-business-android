@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#fafafa"
+              android:orientation="vertical">
+
+    <include layout="@layout/title_bar"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_bundling_phone"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/background_setting_change"
+        android:clickable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:text="已绑定手机号"
+            android:textColor="#3a3a3a"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/tv_bundling_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:text="186-2016-3210"
+            android:textColor="#999999"
+            android:textSize="14sp"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="350dp"
+        android:layout_height="1dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#F6F6F6"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_correct_password"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/background_setting_change"
+        android:clickable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:text="修改密码"
+            android:textColor="#3a3a3a"
+            android:textSize="14sp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/more_icon3x"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="350dp"
+        android:layout_height="1dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#F6F6F6"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_correct_avatar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/background_setting_change"
+        android:clickable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:text="修改头像"
+            android:textColor="#3a3a3a"
+            android:textSize="14sp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/more_icon3x"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="350dp"
+        android:layout_height="1dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#F6F6F6"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_clean_cache"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/background_setting_change"
+        android:clickable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:text="清理缓存"
+            android:textColor="#3a3a3a"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/tv_clean_cache"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:text="20.4M"
+            android:textColor="#999999"
+            android:textSize="14sp"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="350dp"
+        android:layout_height="1dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#F6F6F6"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_about_bibicar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/background_setting_change"
+        android:clickable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:text="关于BiBiCar商家版"
+            android:textColor="#3a3a3a"
+            android:textSize="14sp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/more_icon3x"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="350dp"
+        android:layout_height="1dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#F6F6F6"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_app_evaluate"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/background_setting_change"
+        android:clickable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:text="应用评价"
+            android:textColor="#3a3a3a"
+            android:textSize="14sp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/more_icon3x"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_logout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/background_setting_change"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="退出登录"
+        android:textColor="@drawable/text_color_change_register"
+        android:textSize="14sp"/>
+
+</LinearLayout>

@@ -18,5 +18,8 @@
     <string name="add">确定</string>
     <string name="selected">已选</string>
     <string name="limit_exceeded">最多能选 %d 张</string>
+    <string name="video_string">1.名车行活动跟拍 \n\n2.名车行活动：近期参与或举办的大、中、小型各类活动的报道 \n\n3.名车行新车品鉴以及讲解</string>
+    <string name="car_owner_story">\n1.记录车主购车故事：增添与名车行合作获得的荣誉感与关怀；\n\n2.记录车主售车故事：增添名车行车源的故事性，丰富企业形象；\n\n3.销售个人的sale车故事汇总：成就可靠专业的销售形象</string>
+    <string name="loading">正在加载...</string>
 
 </resources>

@@ -3,7 +3,7 @@ package com.bibicar.view;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
-import android.app.Activity;
+import android.content.Context;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -33,7 +33,7 @@ public class MorePopupWindow extends PopupWindow implements View.OnClickListener
     }
 
     private MorePopupWindowClickListener morePopupWindowClickListener;
-    private Activity context;
+    private Context context;
     private MORE_POPUP_WINDOW_TYPE type;
 
     private int mCurrentIndex1;
@@ -52,7 +52,7 @@ public class MorePopupWindow extends PopupWindow implements View.OnClickListener
         void onCancelBtnClicked();
     }
 
-    public MorePopupWindow(Activity context, MorePopupWindowClickListener listener, MORE_POPUP_WINDOW_TYPE type) {
+    public MorePopupWindow(Context context, MorePopupWindowClickListener listener, MORE_POPUP_WINDOW_TYPE type) {
         super(context);
         setContentView(LayoutInflater.from(context).inflate(R.layout.popup_window_more, null));
         this.morePopupWindowClickListener = listener;
@@ -138,13 +138,14 @@ public class MorePopupWindow extends PopupWindow implements View.OnClickListener
         getFourthBtn().setTextColor(context.getResources().getColor(R.color.color_194_158_103));
         getFourthBtn().setOnClickListener(this);
 
+        //取消按钮
+        getCancelBtn().setTextColor(context.getResources().getColor(R.color.color_111_111_111));
+        getCancelBtn().setOnClickListener(this);
 
         if (type == MORE_POPUP_WINDOW_TYPE.TYPE_ADD_PERSONAL_CARD) {
             getFirstBtn().setText(context.getResources().getString(R.string.take_picture));
             getSecondBtn().setText(context.getResources().getString(R.string.take_from_album));
         }
-        getCancelBtn().setTextColor(context.getResources().getColor(R.color.color_111_111_111));
-        getCancelBtn().setOnClickListener(this);
     }
 
 

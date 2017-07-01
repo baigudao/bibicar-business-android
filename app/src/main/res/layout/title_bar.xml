@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="捷达车行"
+            android:text="bibicar"
             android:textColor="#ffffff"
             android:textSize="18sp"/>
 
@@ -42,7 +42,21 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="15dp"
+            android:clickable="true"
             android:src="@drawable/title_bar_add"/>
+
+        <TextView
+            android:id="@+id/tv_more"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:clickable="true"
+            android:text="更多"
+            android:textColor="@drawable/text_color_change"
+            android:textSize="14sp"
+            android:visibility="gone"/>
 
     </RelativeLayout>
 

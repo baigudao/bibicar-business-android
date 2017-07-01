@@ -10,6 +10,7 @@ import com.bibicar.BaseApplication;
 import com.bibicar.R;
 import com.bibicar.fragment.BaseFragment;
 import com.bibicar.util.Constant;
+import com.blankj.utilcode.util.BarUtils;
 
 /**
  * Created by jackie on 2017/6/3 10:17.
@@ -21,6 +22,7 @@ public class EmptyActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        BarUtils.setColor(EmptyActivity.this, getResources().getColor(R.color.common_color));
         setContentView(R.layout.activity_empty);
         onNewIntent(getIntent());
     }
