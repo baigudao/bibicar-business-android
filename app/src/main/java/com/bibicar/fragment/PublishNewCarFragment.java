@@ -24,6 +24,7 @@ public class PublishNewCarFragment extends BaseFragment {
         view.findViewById(R.id.iv_add).setVisibility(View.INVISIBLE);
 
         view.findViewById(R.id.rl_choose_car_type).setOnClickListener(this);
+        view.findViewById(R.id.rl_car_color).setOnClickListener(this);
     }
 
     @Override
@@ -33,7 +34,10 @@ public class PublishNewCarFragment extends BaseFragment {
                 goBack();
                 break;
             case R.id.rl_choose_car_type:
-                gotoPager(CarBrandChooseFragment.class,null);
+                gotoPager(CarBrandChooseFragment.class, null);
+                break;
+            case R.id.rl_car_color:
+                gotoPager(CarColorChooseFragment.class, null);
                 break;
             default:
                 break;

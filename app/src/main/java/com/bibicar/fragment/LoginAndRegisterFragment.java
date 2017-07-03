@@ -39,7 +39,7 @@ public class LoginAndRegisterFragment extends BaseFragment {
                 //                gotoPager(ADCustomizationFragment.class, null);
                 //                gotoPager(VideoCustomizationFragment.class, null);
                 //                gotoPager(ContentCustomizationFragment.class, null);
-                //                gotoPager(PublishNewCarFragment.class, null);
+                gotoPager(PublishNewCarFragment.class, null);
                 //                gotoPager(CarListFragment.class, null);
                 //                gotoPager(BrowseInfoFragment.class, null);
                 //                gotoPager(PublishSecondHandCarFragment.class, null);
