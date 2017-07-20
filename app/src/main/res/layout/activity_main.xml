@@ -1,44 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="#fafafa"
-              android:orientation="vertical">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <!--FrameLayout-->
-    <FrameLayout
-        android:id="@+id/fl_content"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_height="match_parent"
+        android:background="#fafafa"
+        android:orientation="vertical">
 
-    <!--底部：RadioGroup-->
-    <RadioGroup
-        android:id="@+id/rg_main"
+        <!--FrameLayout-->
+        <FrameLayout
+            android:id="@+id/fl_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <!--底部：RadioGroup-->
+        <RadioGroup
+            android:id="@+id/rg_main"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:background="@drawable/background_tab"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_che_hang"
+                style="@style/bottom_tag_style"
+                android:drawableTop="@drawable/rb_che_hang_selector"
+                android:text="车行"/>
+
+            <RadioButton
+                android:id="@+id/rb_staff"
+                style="@style/bottom_tag_style"
+                android:drawableTop="@drawable/rb_staff_selector"
+                android:text="员工"/>
+
+            <RadioButton
+                android:id="@+id/rb_platform"
+                style="@style/bottom_tag_style"
+                android:drawableTop="@drawable/rb_platform_selector"
+                android:text="平台"/>
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_publish_choose"
         android:layout_width="match_parent"
-        android:layout_height="53dp"
-        android:background="@drawable/background_tab"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:alpha="0.95"
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:visibility="gone">
 
-        <RadioButton
-            android:id="@+id/rb_che_hang"
-            style="@style/bottom_tag_style"
-            android:drawableTop="@drawable/rb_che_hang_selector"
-            android:text="车行"/>
+        <ImageView
+            android:id="@+id/iv_new_car_publish"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="150dp"
+            android:clickable="true"
+            android:src="@drawable/new_car_publish3x"/>
 
-        <RadioButton
-            android:id="@+id/rb_staff"
-            style="@style/bottom_tag_style"
-            android:drawableTop="@drawable/rb_staff_selector"
-            android:text="员工"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="新车"
+            android:textColor="#3a3a3a"
+            android:textSize="15sp"/>
 
-        <RadioButton
-            android:id="@+id/rb_platform"
-            style="@style/bottom_tag_style"
-            android:drawableTop="@drawable/rb_platform_selector"
-            android:text="平台"/>
+        <ImageView
+            android:id="@+id/iv_second_hand_car_publish"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="60dp"
+            android:clickable="true"
+            android:src="@drawable/second_hand_car_publish3x"/>
 
-    </RadioGroup>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="二手车"
+            android:textColor="#3a3a3a"
+            android:textSize="15sp"/>
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/iv_cancel_publish"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="100dp"
+            android:clickable="true"
+            android:src="@drawable/cancel_publish3x"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

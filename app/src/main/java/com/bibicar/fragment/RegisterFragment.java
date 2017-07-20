@@ -12,12 +12,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bibicar.R;
-import com.bibicar.util.Constant;
 import com.bibicar.view.MorePopupWindow;
 import com.blankj.utilcode.util.EmptyUtils;
 import com.blankj.utilcode.util.RegexUtils;
 import com.blankj.utilcode.util.SDCardUtils;
-import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.SizeUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.bumptech.glide.Glide;
@@ -26,10 +24,7 @@ import com.jph.takephoto.model.TResult;
 import com.qiniu.android.http.ResponseInfo;
 import com.qiniu.android.storage.UpCompletionHandler;
 import com.qiniu.android.storage.UploadManager;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.callback.StringCallback;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
@@ -39,7 +34,6 @@ import java.util.TimerTask;
 import java.util.UUID;
 
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
-import okhttp3.Call;
 
 /**
  * Created by jackie on 2017/6/19 10:20.
@@ -237,51 +231,51 @@ public class RegisterFragment extends BaseFragment {
     }
 
     private void register(ArrayList<String> strings) {
-        OkHttpUtils.post()
-                .url(Constant.register)
-                .addParams(Constant.DEVICE_IDENTIFIER, SPUtils.getInstance().getString(Constant.DEVICE_IDENTIFIER))
-                .addParams(Constant.COMPANY, getCompanyName())
-                .addParams(Constant.NAME, getAccountName())
-                .addParams(Constant.MOBILE, getPhone())
-                .addParams(Constant.CODE, getVerificationCode())
-                .addParams(Constant.PASSWORD, getPassword())
-                .addParams(Constant.CARD_FILE, strings.get(0))
-                .addParams(Constant.TELENUMBER, getCheHangTel())
-                .addParams(Constant.ADDRESS, getCheHangAddress())
-                .addParams(Constant.CAR_FILE, strings.get(1))
-                .build()
-                .execute(new StringCallback() {
-                    @Override
-                    public void onError(Call call, Exception e, int id) {
-
-                    }
-
-                    @Override
-                    public void onResponse(String response, int id) {
-                        JSONObject jsonObject = null;
-                        try {
-                            jsonObject = new JSONObject(response);
-                            int status = jsonObject.optInt("status");
-                            JSONObject jsonObjectData = jsonObject.optJSONObject("data");
-                            if (status == 1) {
-                                //商家注册成功，返回mobile
-                                String mobile = jsonObjectData.optString("mobile");//
-                                //返回到上一个界面
-                                goBack();
-                            } else {
-                                String code = jsonObject.optString("code");
-                                String mobile = jsonObjectData.optString("mobile");
-                                if (mobile.equals("手机号已注册")) {
-                                    ToastUtils.showLong("手机号已注册");
-                                    return;
-                                }
-                                ToastUtils.showLong("请求数据失败,请检查网络:" + code);
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
+        //        OkHttpUtils.post()
+        //                .url(Constant.register)
+        //                .addParams(Constant.DEVICE_IDENTIFIER, SPUtils.getInstance().getString(Constant.DEVICE_IDENTIFIER))
+        //                .addParams(Constant.COMPANY, getCompanyName())
+        //                .addParams(Constant.NAME, getAccountName())
+        //                .addParams(Constant.MOBILE, getPhone())
+        //                .addParams(Constant.CODE, getVerificationCode())
+        //                .addParams(Constant.PASSWORD, getPassword())
+        //                .addParams(Constant.CARD_FILE, strings.get(0))
+        //                .addParams(Constant.TELENUMBER, getCheHangTel())
+        //                .addParams(Constant.ADDRESS, getCheHangAddress())
+        //                .addParams(Constant.CAR_FILE, strings.get(1))
+        //                .build()
+        //                .execute(new StringCallback() {
+        //                    @Override
+        //                    public void onError(Call call, Exception e, int id) {
+        //
+        //                    }
+        //
+        //                    @Override
+        //                    public void onResponse(String response, int id) {
+        //                        JSONObject jsonObject = null;
+        //                        try {
+        //                            jsonObject = new JSONObject(response);
+        //                            int status = jsonObject.optInt("status");
+        //                            JSONObject jsonObjectData = jsonObject.optJSONObject("data");
+        //                            if (status == 1) {
+        //                                //商家注册成功，返回mobile
+        //                                String mobile = jsonObjectData.optString("mobile");//
+        //                                //返回到上一个界面
+        //                                goBack();
+        //                            } else {
+        //                                String code = jsonObject.optString("code");
+        //                                String mobile = jsonObjectData.optString("mobile");
+        //                                if (mobile.equals("手机号已注册")) {
+        //                                    ToastUtils.showLong("手机号已注册");
+        //                                    return;
+        //                                }
+        //                                ToastUtils.showLong("请求数据失败,请检查网络:" + code);
+        //                            }
+        //                        } catch (JSONException e) {
+        //                            e.printStackTrace();
+        //                        }
+        //                    }
+        //                });
     }
 
 
@@ -298,33 +292,33 @@ public class RegisterFragment extends BaseFragment {
         mTimer = new Timer();
         initTimerTask();
         mTimer.schedule(mTask, 1000, 1000);
-        OkHttpUtils.post()
-                .url(Constant.getVerificationCode)
-                .addParams(Constant.DEVICE_IDENTIFIER, SPUtils.getInstance().getString(Constant.DEVICE_IDENTIFIER))
-                .addParams(Constant.TYPE, String.valueOf(2))
-                .addParams(Constant.MOBILE, phone)
-                .build()
-                .execute(new StringCallback() {
-                    @Override
-                    public void onError(Call call, Exception e, int id) {
-
-                    }
-
-                    @Override
-                    public void onResponse(String response, int id) {
-                        JSONObject jsonObject = null;
-                        try {
-                            jsonObject = new JSONObject(response);
-                            int status = jsonObject.optInt("status");
-                            if (status == 0) {
-                                String code = jsonObject.optString("code");
-                                ToastUtils.showLong("请求数据失败,请检查网络:" + code);
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
+        //        OkHttpUtils.post()
+        //                .url(Constant.getVerificationCode)
+        //                .addParams(Constant.DEVICE_IDENTIFIER, SPUtils.getInstance().getString(Constant.DEVICE_IDENTIFIER))
+        //                .addParams(Constant.TYPE, String.valueOf(2))
+        //                .addParams(Constant.MOBILE, phone)
+        //                .build()
+        //                .execute(new StringCallback() {
+        //                    @Override
+        //                    public void onError(Call call, Exception e, int id) {
+        //
+        //                    }
+        //
+        //                    @Override
+        //                    public void onResponse(String response, int id) {
+        //                        JSONObject jsonObject = null;
+        //                        try {
+        //                            jsonObject = new JSONObject(response);
+        //                            int status = jsonObject.optInt("status");
+        //                            if (status == 0) {
+        //                                String code = jsonObject.optString("code");
+        //                                ToastUtils.showLong("请求数据失败,请检查网络:" + code);
+        //                            }
+        //                        } catch (JSONException e) {
+        //                            e.printStackTrace();
+        //                        }
+        //                    }
+        //                });
     }
 
     private void showSelectWindow() {

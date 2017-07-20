@@ -1,506 +1,377 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <include layout="@layout/title_bar"/>
+
+    <com.bibicar.view.MyScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#fafafa"
-        android:orientation="vertical">
-
-        <include layout="@layout/title_bar"/>
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@android:color/white"
+            android:layout_height="wrap_content"
+            android:background="#fafafa"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:orientation="horizontal">
+                android:layout_height="200dp"
+                android:background="@android:color/white"
+                android:orientation="vertical">
 
-                <RelativeLayout
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:layout_weight="1">
+                    android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="25dp"
-                        android:text="在售车辆"
-                        android:textColor="#3a3a3a"
-                        android:textSize="14sp"/>
+                    <RelativeLayout
+                        android:id="@+id/rl_car_sale"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:clickable="true">
 
-                    <TextView
-                        android:id="@+id/tv_sale_num"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="45dp"
-                        android:text="102"
-                        android:textColor="#658DF8"
-                        android:textSize="24sp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="25dp"
+                            android:text="在售车辆"
+                            android:textColor="#3a3a3a"
+                            android:textSize="14sp"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="55dp"
-                        android:layout_toRightOf="@id/tv_sale_num"
-                        android:text="辆"
-                        android:textColor="#999999"
-                        android:textSize="12sp"/>
+                        <TextView
+                            android:id="@+id/tv_sale_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="45dp"
+                            android:text="102"
+                            android:textColor="#658DF8"
+                            android:textSize="24sp"/>
 
-                </RelativeLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="55dp"
+                            android:layout_toRightOf="@id/tv_sale_num"
+                            android:text="辆"
+                            android:textColor="#999999"
+                            android:textSize="12sp"/>
 
-                <RelativeLayout
-                    android:layout_width="0dp"
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_car_sold"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:clickable="true">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="25dp"
+                            android:text="已售车辆"
+                            android:textColor="#3a3a3a"
+                            android:textSize="14sp"/>
+
+                        <TextView
+                            android:id="@+id/tv_sold_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="45dp"
+                            android:text="22"
+                            android:textColor="#658DF8"
+                            android:textSize="24sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="55dp"
+                            android:layout_toRightOf="@id/tv_sold_num"
+                            android:text="辆"
+                            android:textColor="#999999"
+                            android:textSize="12sp"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:layout_weight="1">
+                    android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="25dp"
-                        android:text="已售车辆"
-                        android:textColor="#3a3a3a"
-                        android:textSize="14sp"/>
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1">
 
-                    <TextView
-                        android:id="@+id/tv_sold_num"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="45dp"
-                        android:text="22"
-                        android:textColor="#658DF8"
-                        android:textSize="24sp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="25dp"
+                            android:text="车行总浏览次数"
+                            android:textColor="#3a3a3a"
+                            android:textSize="14sp"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="55dp"
-                        android:layout_toRightOf="@id/tv_sold_num"
-                        android:text="辆"
-                        android:textColor="#999999"
-                        android:textSize="12sp"/>
+                        <TextView
+                            android:id="@+id/tv_browse_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="45dp"
+                            android:text="1002"
+                            android:textColor="#658DF8"
+                            android:textSize="24sp"/>
 
-                </RelativeLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="55dp"
+                            android:layout_toRightOf="@id/tv_browse_num"
+                            android:text="次"
+                            android:textColor="#999999"
+                            android:textSize="12sp"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="25dp"
+                            android:text="总接待咨询人数"
+                            android:textColor="#3a3a3a"
+                            android:textSize="14sp"/>
+
+                        <TextView
+                            android:id="@+id/tv_consult_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="45dp"
+                            android:text="569"
+                            android:textColor="#658DF8"
+                            android:textSize="24sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="55dp"
+                            android:layout_toRightOf="@id/tv_consult_num"
+                            android:text="次"
+                            android:textColor="#999999"
+                            android:textSize="12sp"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/white"
                 android:orientation="horizontal">
 
                 <RelativeLayout
+                    android:id="@+id/rl_staff_sum"
                     android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_weight="1">
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/iv_staff"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/staff_sum3x"/>
 
                     <TextView
+                        android:id="@+id/tv_staff"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="25dp"
-                        android:text="车行总浏览次数"
-                        android:textColor="#3a3a3a"
-                        android:textSize="14sp"/>
-
-                    <TextView
-                        android:id="@+id/tv_browse_num"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="45dp"
-                        android:text="1002"
-                        android:textColor="#658DF8"
-                        android:textSize="24sp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="55dp"
-                        android:layout_toRightOf="@id/tv_browse_num"
-                        android:text="次"
-                        android:textColor="#999999"
-                        android:textSize="12sp"/>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="25dp"
-                        android:text="总接待咨询人数"
-                        android:textColor="#3a3a3a"
-                        android:textSize="14sp"/>
-
-                    <TextView
-                        android:id="@+id/tv_consult_num"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="45dp"
-                        android:text="569"
-                        android:textColor="#658DF8"
-                        android:textSize="24sp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="55dp"
-                        android:layout_toRightOf="@id/tv_consult_num"
-                        android:text="次"
-                        android:textColor="#999999"
-                        android:textSize="12sp"/>
-
-                </RelativeLayout>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/white"
-            android:orientation="horizontal">
-
-            <RelativeLayout
-                android:id="@+id/rl_staff_sum"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                android:gravity="center">
-
-                <ImageView
-                    android:id="@+id/iv_staff"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/staff_sum3x"/>
-
-                <TextView
-                    android:id="@+id/tv_staff"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_toRightOf="@id/iv_staff"
-                    android:text="213名员工"
-                    android:textColor="#3a3a3a"
-                    android:textSize="15sp"/>
-
-                <ImageView
-                    android:id="@+id/iv_staff_more"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/tv_staff"
-                    android:src="@drawable/more_icon3x"/>
-
-            </RelativeLayout>
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center_vertical"
-                android:background="#eeeeee"/>
-
-            <RelativeLayout
-                android:id="@+id/rl_car_sum"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                android:gravity="center">
-
-                <ImageView
-                    android:id="@+id/iv_car_sum"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/car_sum3x"/>
-
-                <TextView
-                    android:id="@+id/tv_car_sum"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_toRightOf="@id/iv_car_sum"
-                    android:text="113辆车辆"
-                    android:textColor="#3a3a3a"
-                    android:textSize="15sp"/>
-
-                <ImageView
-                    android:id="@+id/iv_car_sum_more"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/tv_car_sum"
-                    android:src="@drawable/more_icon3x"/>
-
-            </RelativeLayout>
-
-        </LinearLayout>
-
-        <RelativeLayout
-            android:id="@+id/rl_car"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/white"
-            android:visibility="visible">
-
-            <ImageView
-                android:id="@+id/iv_title"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"
-                android:src="@drawable/iv_notice"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@id/iv_title"
-                android:text="明星车型"
-                android:textColor="#3a3a3a"
-                android:textSize="16sp"/>
-
-            <TextView
-                android:id="@+id/tv_check_all"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="15dp"
-                android:clickable="true"
-                android:text="查看全部"
-                android:textColor="#999999"
-                android:textSize="12sp"/>
-
-        </RelativeLayout>
-
-        <LinearLayout
-            android:id="@+id/ll_car"
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:background="@android:color/white"
-            android:orientation="horizontal"
-            android:visibility="visible">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="150dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/iv_car1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="120dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/bibi_default"/>
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
-
-                    <TextView
-                        android:id="@+id/tv_car1_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:text="宝马x3"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_toRightOf="@id/iv_staff"
+                        android:text="213名员工"
                         android:textColor="#3a3a3a"
                         android:textSize="15sp"/>
 
-                    <TextView
-                        android:id="@+id/tv_car1_check_num"
+                    <ImageView
+                        android:id="@+id/iv_staff_more"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:text="563次浏览"
-                        android:textColor="#999999"
-                        android:textSize="10sp"/>
+                        android:layout_toRightOf="@id/tv_staff"
+                        android:src="@drawable/more_icon3x"/>
 
                 </RelativeLayout>
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="150dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/iv_car2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="120dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/bibi_default"/>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="#eeeeee"/>
 
                 <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
+                    android:id="@+id/rl_car_sum"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/iv_car_sum"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/car_sum3x"/>
 
                     <TextView
-                        android:id="@+id/tv_car2_name"
+                        android:id="@+id/tv_car_sum"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:text="宝马x3"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_toRightOf="@id/iv_car_sum"
+                        android:text="113辆车辆"
                         android:textColor="#3a3a3a"
                         android:textSize="15sp"/>
 
-                    <TextView
-                        android:id="@+id/tv_car2_check_num"
+                    <ImageView
+                        android:id="@+id/iv_car_sum_more"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:text="563次浏览"
-                        android:textColor="#999999"
-                        android:textSize="10sp"/>
+                        android:layout_toRightOf="@id/tv_car_sum"
+                        android:src="@drawable/more_icon3x"/>
 
                 </RelativeLayout>
 
             </LinearLayout>
 
+            <RelativeLayout
+                android:id="@+id/rl_car"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/white"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/iv_title"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/iv_notice"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/iv_title"
+                    android:text="明星车型"
+                    android:textColor="#3a3a3a"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/tv_check_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:clickable="true"
+                    android:text="查看全部"
+                    android:textColor="#999999"
+                    android:textSize="12sp"/>
+
+            </RelativeLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:paddingBottom="20dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:visibility="visible"/>
+
+            <LinearLayout
+                android:id="@+id/ll_empty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="30dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/empty_state_picture3x"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:text="你目前没有上传任何车辆"
+                    android:textColor="#999999"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/tv_start_post"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:clickable="true"
+                    android:text="开始上传"
+                    android:textColor="@drawable/background_user_protocol_change"
+                    android:textSize="14sp"/>
+
+            </LinearLayout>
+
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/ll_empty"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:visibility="gone">
+    </com.bibicar.view.MyScrollView>
 
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="80dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="30dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/empty_state_picture3x"/>
+</LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
-                android:text="你目前没有上传任何车辆"
-                android:textColor="#999999"
-                android:textSize="14sp"/>
-
-            <TextView
-                android:id="@+id/tv_start_post"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
-                android:clickable="true"
-                android:text="开始上传"
-                android:textColor="@drawable/background_user_protocol_change"
-                android:textSize="14sp"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ll_publish_choose"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:alpha="0.95"
-        android:background="#ffffff"
-        android:orientation="vertical"
-        android:visibility="gone">
-
-        <ImageView
-            android:id="@+id/iv_new_car_publish"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="150dp"
-            android:clickable="true"
-            android:src="@drawable/new_car_publish3x"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:text="新车"
-            android:textColor="#3a3a3a"
-            android:textSize="15sp"/>
-
-        <ImageView
-            android:id="@+id/iv_second_hand_car_publish"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="60dp"
-            android:clickable="true"
-            android:src="@drawable/second_hand_car_publish3x"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:text="二手车"
-            android:textColor="#3a3a3a"
-            android:textSize="15sp"/>
-
-        <ImageView
-            android:id="@+id/iv_cancel_publish"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="100dp"
-            android:clickable="true"
-            android:src="@drawable/cancel_publish3x"/>
-
-    </LinearLayout>
-
-</RelativeLayout>

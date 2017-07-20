@@ -4,12 +4,18 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bibicar.R;
+import com.bibicar.bean.CarInfoBean;
+import com.blankj.utilcode.util.SizeUtils;
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 /**
  * Created by jackie on 2017/7/3 10:01.
@@ -42,9 +48,9 @@ public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewAda
     }
 
     public enum DATA_TYPE {
-        TYPE_RECOMMAND_HUATI(3),
         TYPE_SAME_BRAND_USER(10),
-        TYPE_CHOOSE_CAR_COLOR(0);
+        TYPE_CHOOSE_CAR_COLOR(0),
+        TYPE_STAR_CAR(2);//明星车型
 
         DATA_TYPE(int value) {
         }
@@ -56,6 +62,8 @@ public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewAda
         if (dataType == DATA_TYPE.TYPE_CHOOSE_CAR_COLOR) {
             itemView = View.inflate(mContext, R.layout.item_car_color_choose, null);
             //            itemView = View.inflate(mContext, R.layout.item_friend_img, null);
+        } else if (dataType == DATA_TYPE.TYPE_STAR_CAR) {
+            itemView = View.inflate(mContext, R.layout.item_star_car, null);
         }
         ViewHolder viewHolder = new ViewHolder(itemView);
         return viewHolder;
@@ -111,6 +119,21 @@ public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewAda
                 TextView textView = (TextView) mView.findViewById(R.id.tv);
                 if (data instanceof ArrayList) {
                     textView.setText((CharSequence) ((ArrayList) data).get(mPosition));
+                }
+            } else if (dataType == DATA_TYPE.TYPE_STAR_CAR) {
+                ImageView iv_car = (ImageView) mView.findViewById(R.id.iv_car);
+                TextView tv_car_name = (TextView) mView.findViewById(R.id.tv_car_name);
+                TextView tv_car_check_num = (TextView) mView.findViewById(R.id.tv_car_check_num);
+                if (data instanceof CarInfoBean) {
+                    CarInfoBean carInfoBean = (CarInfoBean) data;
+                    Glide.with(mContext)
+                            .load("http://img.bibicar.cn/" + carInfoBean.getFiles().get(0).getHash())
+                            .placeholder(R.drawable.bibi_default)
+                            .bitmapTransform(new RoundedCornersTransformation(mContext, SizeUtils.dp2px(8), 0,
+                                    RoundedCornersTransformation.CornerType.ALL))
+                            .into(iv_car);
+                    tv_car_name.setText(carInfoBean.getCar_name());
+                    tv_car_check_num.setText(carInfoBean.getVisit_num() + "次浏览");
                 }
             }
         }

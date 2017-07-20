@@ -35,20 +35,26 @@ public class Constant {
     public static final String POSITION = "position";
     public static final int PAGE_NUM = 10;//刷新一页的数据
     public static final String IS_USER_LOGIN = "is_user_login";
+    public static final String PAGE = "page";
 
     //URL常量
-    //    private static final String baseUrl = "http://testapi.bibicars.cn";
-    private static final String baseUrl = "http://testapi.bibicars.cn";//商家版测试环境
-    //    private final static String hostUrl = "https://api.bibicar.cn/";
-    private final static String hostUrl = "https://testapi.bibicar.cn/";//个人版测试环境
-    public static final String registerApp = baseUrl + "/user/identifier";
-    public static final String getVerificationCode = baseUrl + "/user/sendcode";//获取手机验证码
-    public static final String register = baseUrl + "/user/signup";//商家注册
-    public static final String postFileToken = baseUrl + "/user/token";//上传文件的token
-    public static final String loginUrl = baseUrl + "/user/login";//商家登录
-    public static final String correctPasswordUrl = baseUrl + "/user/password";//修改密码
-    public static final String cheHangInfoUrl = baseUrl + "/car/company";//车行信息
-    public static final String addStaffUrl = baseUrl + "/user/create";//添加员工
-    public static final String staffListUrl = baseUrl + "/user/employeelist";//员工列表
-    public static final String carBrandUrl = hostUrl + "car/brand";//汽车品牌
+    private static final String baseUrl = "http://testapi.bibicars.cn";
+    public static final String homeUrl = baseUrl + "/v1/user/homepage";//首页URL
+    public static final String staffUrl = baseUrl + "/v1/user/stafflist";//员工列表URL
+
+
+    //    //    private static final String baseUrl = "http://testapi.bibicars.cn";
+    //    private static final String baseUrl = "http://testapi.bibicars.cn";//商家版测试环境
+    //    //    private final static String hostUrl = "https://api.bibicar.cn/";
+    //    private final static String hostUrl = "https://testapi.bibicar.cn/";//个人版测试环境
+    //    public static final String registerApp = baseUrl + "/user/identifier";
+    //    public static final String getVerificationCode = baseUrl + "/user/sendcode";//获取手机验证码
+    //    public static final String register = baseUrl + "/user/signup";//商家注册
+    //    public static final String postFileToken = baseUrl + "/user/token";//上传文件的token
+    //    public static final String loginUrl = baseUrl + "/user/login";//商家登录
+    //    public static final String correctPasswordUrl = baseUrl + "/user/password";//修改密码
+    //    public static final String cheHangInfoUrl = baseUrl + "/car/company";//车行信息
+    //    public static final String addStaffUrl = baseUrl + "/user/create";//添加员工
+    //    public static final String staffListUrl = baseUrl + "/user/employeelist";//员工列表
+    //    public static final String carBrandUrl = hostUrl + "car/brand";//汽车品牌
 }

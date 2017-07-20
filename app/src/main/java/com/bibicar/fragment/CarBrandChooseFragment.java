@@ -6,23 +6,7 @@ import android.widget.AdapterView;
 import android.widget.TextView;
 
 import com.bibicar.R;
-import com.bibicar.bean.BrandBean;
-import com.bibicar.util.Constant;
 import com.bibicar.view.PullToRefreshListView;
-import com.blankj.utilcode.util.SPUtils;
-import com.blankj.utilcode.util.ToastUtils;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.callback.StringCallback;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-
-import okhttp3.Call;
 
 import static com.bibicar.R.id.tv_title;
 
@@ -60,48 +44,48 @@ public class CarBrandChooseFragment extends BaseFragment implements PullToRefres
     @Override
     protected void initData() {
         super.initData();
-        OkHttpUtils.post()
-                .url(Constant.carBrandUrl)
-                .addParams(Constant.DEVICE_IDENTIFIER, SPUtils.getInstance().getString(Constant.DEVICE_IDENTIFIER))
-                .build()
-                .execute(new StringCallback() {
-                    @Override
-                    public void onError(Call call, Exception e, int id) {
-
-                    }
-
-                    @Override
-                    public void onResponse(String response, int id) {
-                        JSONObject jsonObject = null;
-                        try {
-                            jsonObject = new JSONObject(response);
-                            int status = jsonObject.optInt("status");
-                            JSONObject jsonObjectData = jsonObject.optJSONObject("data");
-                            if (status == 1) {
-                                JSONObject jsonObjectBrandList = jsonObjectData.optJSONObject("brand_list");
-
-                                String[] strings = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
-                                for (String string : strings) {
-                                    JSONArray jsonArray = jsonObjectBrandList.optJSONArray(string);
-                                    Gson gson = new Gson();
-                                    ArrayList<BrandBean> brandBeanArrayList = gson.fromJson(jsonArray.toString(), new TypeToken<ArrayList<BrandBean>>() {
-                                    }.getType());
-                                    for (BrandBean brandBean : brandBeanArrayList) {
-                                        brandBean.getBrand_name();
-
-
-                                    }
-                                }
-                            } else {
-                                String code = jsonObject.optString("code");
-                                String msg = jsonObjectData.optString("msg");
-                                ToastUtils.showLong("请求数据失败,请检查网络:" + code + "-" + msg);
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
+        //        OkHttpUtils.post()
+        //                .url(Constant.carBrandUrl)
+        //                .addParams(Constant.DEVICE_IDENTIFIER, SPUtils.getInstance().getString(Constant.DEVICE_IDENTIFIER))
+        //                .build()
+        //                .execute(new StringCallback() {
+        //                    @Override
+        //                    public void onError(Call call, Exception e, int id) {
+        //
+        //                    }
+        //
+        //                    @Override
+        //                    public void onResponse(String response, int id) {
+        //                        JSONObject jsonObject = null;
+        //                        try {
+        //                            jsonObject = new JSONObject(response);
+        //                            int status = jsonObject.optInt("status");
+        //                            JSONObject jsonObjectData = jsonObject.optJSONObject("data");
+        //                            if (status == 1) {
+        //                                JSONObject jsonObjectBrandList = jsonObjectData.optJSONObject("brand_list");
+        //
+        //                                String[] strings = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+        //                                for (String string : strings) {
+        //                                    JSONArray jsonArray = jsonObjectBrandList.optJSONArray(string);
+        //                                    Gson gson = new Gson();
+        //                                    ArrayList<BrandBean> brandBeanArrayList = gson.fromJson(jsonArray.toString(), new TypeToken<ArrayList<BrandBean>>() {
+        //                                    }.getType());
+        //                                    for (BrandBean brandBean : brandBeanArrayList) {
+        //                                        brandBean.getBrand_name();
+        //
+        //
+        //                                    }
+        //                                }
+        //                            } else {
+        //                                String code = jsonObject.optString("code");
+        //                                String msg = jsonObjectData.optString("msg");
+        //                                ToastUtils.showLong("请求数据失败,请检查网络:" + code + "-" + msg);
+        //                            }
+        //                        } catch (JSONException e) {
+        //                            e.printStackTrace();
+        //                        }
+        //                    }
+        //                });
     }
 
     @Override

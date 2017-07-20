@@ -11,20 +11,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.bibicar.R;
-import com.bibicar.util.Constant;
-import com.blankj.utilcode.util.EmptyUtils;
 import com.blankj.utilcode.util.RegexUtils;
-import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.callback.StringCallback;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
-
-import okhttp3.Call;
 
 /**
  * Created by jackie on 2017/6/27 16:51.
@@ -110,42 +100,42 @@ public class AddStaffFragment extends BaseFragment {
             ToastUtils.showShort("请输入正确的手机号码");
             return;
         }
-        OkHttpUtils.post()
-                .url(Constant.addStaffUrl)
-                .addParams(Constant.DEVICE_IDENTIFIER, SPUtils.getInstance().getString(Constant.DEVICE_IDENTIFIER))
-                .addParams(Constant.SESSION_ID, SPUtils.getInstance().getString(Constant.SESSION_ID))
-                .addParams(Constant.NICKNAME, getStaffName())
-                .addParams(Constant.MOBILE, getStaffPhone())
-                .addParams(Constant.POSITION, spinner_item_string)
-                .build()
-                .execute(new StringCallback() {
-                    @Override
-                    public void onError(Call call, Exception e, int id) {
-
-                    }
-
-                    @Override
-                    public void onResponse(String response, int id) {
-                        JSONObject jsonObject = null;
-                        try {
-                            jsonObject = new JSONObject(response);
-                            JSONObject jsonObjectData = jsonObject.optJSONObject("data");
-                            int status = jsonObject.optInt("status");
-                            if (status == 1) {
-                                String msg = jsonObjectData.optString("msg");
-                                if (EmptyUtils.isNotEmpty(msg) && msg.equals("Success")) {
-                                    ToastUtils.showShort("添加成功");
-                                    goBack();//返回上一个页面
-                                }
-                            } else {
-                                String code = jsonObject.optString("code");
-                                ToastUtils.showLong("请求数据失败,请检查网络:" + code);
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
+        //        OkHttpUtils.post()
+        //                .url(Constant.addStaffUrl)
+        //                .addParams(Constant.DEVICE_IDENTIFIER, SPUtils.getInstance().getString(Constant.DEVICE_IDENTIFIER))
+        //                .addParams(Constant.SESSION_ID, SPUtils.getInstance().getString(Constant.SESSION_ID))
+        //                .addParams(Constant.NICKNAME, getStaffName())
+        //                .addParams(Constant.MOBILE, getStaffPhone())
+        //                .addParams(Constant.POSITION, spinner_item_string)
+        //                .build()
+        //                .execute(new StringCallback() {
+        //                    @Override
+        //                    public void onError(Call call, Exception e, int id) {
+        //
+        //                    }
+        //
+        //                    @Override
+        //                    public void onResponse(String response, int id) {
+        //                        JSONObject jsonObject = null;
+        //                        try {
+        //                            jsonObject = new JSONObject(response);
+        //                            JSONObject jsonObjectData = jsonObject.optJSONObject("data");
+        //                            int status = jsonObject.optInt("status");
+        //                            if (status == 1) {
+        //                                String msg = jsonObjectData.optString("msg");
+        //                                if (EmptyUtils.isNotEmpty(msg) && msg.equals("Success")) {
+        //                                    ToastUtils.showShort("添加成功");
+        //                                    goBack();//返回上一个页面
+        //                                }
+        //                            } else {
+        //                                String code = jsonObject.optString("code");
+        //                                ToastUtils.showLong("请求数据失败,请检查网络:" + code);
+        //                            }
+        //                        } catch (JSONException e) {
+        //                            e.printStackTrace();
+        //                        }
+        //                    }
+        //                });
     }
 
     private class MyTextChangedListener implements TextWatcher {

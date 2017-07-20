@@ -13,19 +13,12 @@ import com.bibicar.R;
 import com.bibicar.fragment.LoginAndRegisterFragment;
 import com.bibicar.util.CommonUtil;
 import com.bibicar.util.Constant;
+import com.blankj.utilcode.util.BarUtils;
 import com.blankj.utilcode.util.EmptyUtils;
 import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ScreenUtils;
-import com.blankj.utilcode.util.ToastUtils;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.callback.StringCallback;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
-
-import okhttp3.Call;
 
 /**
  * Created by jackie on 2017/6/17 14:18.
@@ -46,15 +39,22 @@ public class SplashActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        BarUtils.hideStatusBar(SplashActivity.this);
         setContentView(R.layout.activity_splash);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            //SDK版本大于等于23，也就是Android 6.0
-            requestPermission();//请求权限  XiaoMi6.0.1
-        } else {
-            //SDK版本小于23的走这
-            afterRequestPermission();//请求权限之后 MeiZu5.1
-        }
+        //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        //            //SDK版本大于等于23，也就是Android 6.0
+        //            requestPermission();//请求权限  XiaoMi6.0.1
+        //        } else {
+        //            //SDK版本小于23的走这
+        //            afterRequestPermission();//请求权限之后 MeiZu5.1
+        //        }
+
+        //如果用户登录过，就直接进入主页面
+        Intent intent = null;
+        intent = new Intent(SplashActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 
@@ -111,39 +111,39 @@ public class SplashActivity extends Activity {
             String device_sys_version = Constant.DEVICE_ANDROID + Build.VERSION.SDK_INT;//版本号
             String device_type = String.valueOf(Constant.DEVICE_TYPE_ANDROID);//设备类型Apple/Android
 
-            OkHttpUtils.post()
-                    .url(Constant.registerApp)
-                    .addParams(Constant.DEVICE_ID, device_id)
-                    .addParams(Constant.DEVICE_RESOLUTION, device_resolution)
-                    .addParams(Constant.DEVICE_SYS_VERSION, device_sys_version)
-                    .addParams(Constant.DEVICE_TYPE, device_type)
-                    .build()
-                    .execute(new StringCallback() {
-                        @Override
-                        public void onError(Call call, Exception e, int id) {
-
-                        }
-
-                        @Override
-                        public void onResponse(String response, int id) {
-                            JSONObject jsonObject = null;
-                            try {
-                                jsonObject = new JSONObject(response);
-                                int status = jsonObject.optInt("status");
-                                JSONObject jsonObjectData = jsonObject.optJSONObject("data");
-                                if (status == 1) {
-                                    //app注册，返回设备唯一标识，并保存
-                                    String device_identifier = jsonObjectData.optString(Constant.DEVICE_IDENTIFIER);
-                                    SPUtils.getInstance().put(Constant.DEVICE_IDENTIFIER, device_identifier);
-                                } else {
-                                    String code = jsonObject.optString("code");
-                                    ToastUtils.showLong("请求数据失败,请检查网络:" + code);
-                                }
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    });
+            //            OkHttpUtils.post()
+            //                    .url(Constant.registerApp)
+            //                    .addParams(Constant.DEVICE_ID, device_id)
+            //                    .addParams(Constant.DEVICE_RESOLUTION, device_resolution)
+            //                    .addParams(Constant.DEVICE_SYS_VERSION, device_sys_version)
+            //                    .addParams(Constant.DEVICE_TYPE, device_type)
+            //                    .build()
+            //                    .execute(new StringCallback() {
+            //                        @Override
+            //                        public void onError(Call call, Exception e, int id) {
+            //
+            //                        }
+            //
+            //                        @Override
+            //                        public void onResponse(String response, int id) {
+            //                            JSONObject jsonObject = null;
+            //                            try {
+            //                                jsonObject = new JSONObject(response);
+            //                                int status = jsonObject.optInt("status");
+            //                                JSONObject jsonObjectData = jsonObject.optJSONObject("data");
+            //                                if (status == 1) {
+            //                                    //app注册，返回设备唯一标识，并保存
+            //                                    String device_identifier = jsonObjectData.optString(Constant.DEVICE_IDENTIFIER);
+            //                                    SPUtils.getInstance().put(Constant.DEVICE_IDENTIFIER, device_identifier);
+            //                                } else {
+            //                                    String code = jsonObject.optString("code");
+            //                                    ToastUtils.showLong("请求数据失败,请检查网络:" + code);
+            //                                }
+            //                            } catch (JSONException e) {
+            //                                e.printStackTrace();
+            //                            }
+            //                        }
+            //                    });
         }
         Intent intent;
         boolean is_user_login = SPUtils.getInstance().getBoolean(Constant.IS_USER_LOGIN);

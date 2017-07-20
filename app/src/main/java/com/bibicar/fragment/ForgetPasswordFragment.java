@@ -15,16 +15,9 @@ import com.blankj.utilcode.util.EmptyUtils;
 import com.blankj.utilcode.util.RegexUtils;
 import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.callback.StringCallback;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.Timer;
 import java.util.TimerTask;
-
-import okhttp3.Call;
 
 /**
  * Created by jackie on 2017/6/26 17:18.
@@ -118,38 +111,38 @@ public class ForgetPasswordFragment extends BaseFragment {
         // 1111
         // 123456
         // 123456
-        OkHttpUtils.post()
-                .url(Constant.correctPasswordUrl)
-                .addParams(Constant.DEVICE_IDENTIFIER, SPUtils.getInstance().getString(Constant.DEVICE_IDENTIFIER))
-                .addParams(Constant.SESSION_ID, session_id)
-                .addParams(Constant.MOBILE, phone)
-                .addParams(Constant.CODE, verification_code)
-                .addParams(Constant.PASSWORD1, getPassword())
-                .addParams(Constant.PASSWORD2, getPassword())
-                .build()
-                .execute(new StringCallback() {
-                    @Override
-                    public void onError(Call call, Exception e, int id) {
-                        e.printStackTrace();
-                    }
-
-                    @Override
-                    public void onResponse(String response, int id) {
-                        Log.e("修改密码数据>>>", response);
-                        ToastUtils.showLong("hehe");
-                        //                        JSONObject jsonObject = null;
-                        //                        try {
-                        //                            jsonObject = new JSONObject(response);
-                        //                            int status = jsonObject.optInt("status");
-                        //                            if (status == 0) {
-                        //                                String code = jsonObject.optString("code");
-                        //                                ToastUtils.showLong("请求数据失败,请检查网络:" + code);
-                        //                            }
-                        //                        } catch (JSONException e) {
-                        //                            e.printStackTrace();
-                        //                        }
-                    }
-                });
+        //        OkHttpUtils.post()
+        //                .url(Constant.correctPasswordUrl)
+        //                .addParams(Constant.DEVICE_IDENTIFIER, SPUtils.getInstance().getString(Constant.DEVICE_IDENTIFIER))
+        //                .addParams(Constant.SESSION_ID, session_id)
+        //                .addParams(Constant.MOBILE, phone)
+        //                .addParams(Constant.CODE, verification_code)
+        //                .addParams(Constant.PASSWORD1, getPassword())
+        //                .addParams(Constant.PASSWORD2, getPassword())
+        //                .build()
+        //                .execute(new StringCallback() {
+        //                    @Override
+        //                    public void onError(Call call, Exception e, int id) {
+        //                        e.printStackTrace();
+        //                    }
+        //
+        //                    @Override
+        //                    public void onResponse(String response, int id) {
+        //                        Log.e("修改密码数据>>>", response);
+        //                        ToastUtils.showLong("hehe");
+        //                        //                        JSONObject jsonObject = null;
+        //                        //                        try {
+        //                        //                            jsonObject = new JSONObject(response);
+        //                        //                            int status = jsonObject.optInt("status");
+        //                        //                            if (status == 0) {
+        //                        //                                String code = jsonObject.optString("code");
+        //                        //                                ToastUtils.showLong("请求数据失败,请检查网络:" + code);
+        //                        //                            }
+        //                        //                        } catch (JSONException e) {
+        //                        //                            e.printStackTrace();
+        //                        //                        }
+        //                    }
+        //                });
     }
 
     private void getVerificationCodeFromServer() {
@@ -165,33 +158,33 @@ public class ForgetPasswordFragment extends BaseFragment {
         mTimer = new Timer();
         initTimerTask();
         mTimer.schedule(mTask, 1000, 1000);
-        OkHttpUtils.post()
-                .url(Constant.getVerificationCode)
-                .addParams(Constant.DEVICE_IDENTIFIER, SPUtils.getInstance().getString(Constant.DEVICE_IDENTIFIER))
-                .addParams(Constant.TYPE, String.valueOf(2))
-                .addParams(Constant.MOBILE, phone)
-                .build()
-                .execute(new StringCallback() {
-                    @Override
-                    public void onError(Call call, Exception e, int id) {
-
-                    }
-
-                    @Override
-                    public void onResponse(String response, int id) {
-                        JSONObject jsonObject = null;
-                        try {
-                            jsonObject = new JSONObject(response);
-                            int status = jsonObject.optInt("status");
-                            if (status == 0) {
-                                String code = jsonObject.optString("code");
-                                ToastUtils.showLong("请求数据失败,请检查网络:" + code);
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
+        //        OkHttpUtils.post()
+        //                .url(Constant.getVerificationCode)
+        //                .addParams(Constant.DEVICE_IDENTIFIER, SPUtils.getInstance().getString(Constant.DEVICE_IDENTIFIER))
+        //                .addParams(Constant.TYPE, String.valueOf(2))
+        //                .addParams(Constant.MOBILE, phone)
+        //                .build()
+        //                .execute(new StringCallback() {
+        //                    @Override
+        //                    public void onError(Call call, Exception e, int id) {
+        //
+        //                    }
+        //
+        //                    @Override
+        //                    public void onResponse(String response, int id) {
+        //                        JSONObject jsonObject = null;
+        //                        try {
+        //                            jsonObject = new JSONObject(response);
+        //                            int status = jsonObject.optInt("status");
+        //                            if (status == 0) {
+        //                                String code = jsonObject.optString("code");
+        //                                ToastUtils.showLong("请求数据失败,请检查网络:" + code);
+        //                            }
+        //                        } catch (JSONException e) {
+        //                            e.printStackTrace();
+        //                        }
+        //                    }
+        //                });
     }
 
     /**

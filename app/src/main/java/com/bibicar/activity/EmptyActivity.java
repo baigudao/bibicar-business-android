@@ -22,7 +22,7 @@ public class EmptyActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        BarUtils.setColor(EmptyActivity.this, getResources().getColor(R.color.common_color));
+        BarUtils.setTransparentStatusBar(EmptyActivity.this);//设置状态栏为透明
         setContentView(R.layout.activity_empty);
         onNewIntent(getIntent());
     }

@@ -10,6 +10,7 @@ import com.bibicar.fragment.BaseFragment;
 import com.bibicar.fragment.CheHangFragment;
 import com.bibicar.fragment.PlatformFragment;
 import com.bibicar.fragment.StaffFragment;
+import com.blankj.utilcode.util.BarUtils;
 
 import java.util.ArrayList;
 
@@ -28,6 +29,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        BarUtils.setTransparentStatusBar(MainActivity.this);//设置状态栏为透明
         //初始化View
         initView();
         //初始化Fragment

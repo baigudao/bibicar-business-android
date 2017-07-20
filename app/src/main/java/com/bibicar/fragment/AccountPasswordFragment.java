@@ -1,6 +1,5 @@
 package com.bibicar.fragment;
 
-import android.content.Intent;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -8,19 +7,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.bibicar.R;
-import com.bibicar.activity.EmptyActivity;
-import com.bibicar.activity.MainActivity;
-import com.bibicar.util.Constant;
-import com.blankj.utilcode.util.EmptyUtils;
-import com.blankj.utilcode.util.SPUtils;
-import com.blankj.utilcode.util.ToastUtils;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.callback.StringCallback;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import okhttp3.Call;
 
 /**
  * Created by jackie on 2017/6/26 10:28.
@@ -47,7 +33,7 @@ public class AccountPasswordFragment extends BaseFragment {
         view.findViewById(R.id.tv_user_protocol).setOnClickListener(this);
         btn_login = (Button) view.findViewById(R.id.btn_login);
         btn_login.setOnClickListener(this);
-        view.findViewById(R.id.tv_forget_password).setOnClickListener(this); 
+        view.findViewById(R.id.tv_forget_password).setOnClickListener(this);
     }
 
     private String getAccount() {
@@ -76,42 +62,42 @@ public class AccountPasswordFragment extends BaseFragment {
     }
 
     private void login() {
-        OkHttpUtils.post()
-                .url(Constant.loginUrl)
-                .addParams(Constant.DEVICE_IDENTIFIER, SPUtils.getInstance().getString(Constant.DEVICE_IDENTIFIER))
-                .addParams(Constant.MOBILE, getAccount())
-                .addParams(Constant.PASSWORD, getPassword())
-                .build()
-                .execute(new StringCallback() {
-                    @Override
-                    public void onError(Call call, Exception e, int id) {
-
-                    }
-
-                    @Override
-                    public void onResponse(String response, int id) {
-                        JSONObject jsonObject = null;
-                        try {
-                            jsonObject = new JSONObject(response);
-                            JSONObject jsonObjectData = jsonObject.optJSONObject("data");
-                            int status = jsonObject.optInt("status");
-                            if (status == 1) {
-                                String session_id = jsonObjectData.optString("session");
-                                if (EmptyUtils.isNotEmpty(session_id)) {
-                                    SPUtils.getInstance().put(Constant.SESSION_ID, session_id);//存储session_id
-                                }
-                                startActivity(new Intent(mContext, MainActivity.class));
-                                ((EmptyActivity) mContext).finish();
-                            } else {
-                                String code = jsonObject.optString("code");
-                                String msg = jsonObjectData.optString("msg");
-                                ToastUtils.showLong("请求数据失败,请检查网络:" + code + "-" + msg);
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
+        //        OkHttpUtils.post()
+        //                .url(Constant.loginUrl)
+        //                .addParams(Constant.DEVICE_IDENTIFIER, SPUtils.getInstance().getString(Constant.DEVICE_IDENTIFIER))
+        //                .addParams(Constant.MOBILE, getAccount())
+        //                .addParams(Constant.PASSWORD, getPassword())
+        //                .build()
+        //                .execute(new StringCallback() {
+        //                    @Override
+        //                    public void onError(Call call, Exception e, int id) {
+        //
+        //                    }
+        //
+        //                    @Override
+        //                    public void onResponse(String response, int id) {
+        //                        JSONObject jsonObject = null;
+        //                        try {
+        //                            jsonObject = new JSONObject(response);
+        //                            JSONObject jsonObjectData = jsonObject.optJSONObject("data");
+        //                            int status = jsonObject.optInt("status");
+        //                            if (status == 1) {
+        //                                String session_id = jsonObjectData.optString("session");
+        //                                if (EmptyUtils.isNotEmpty(session_id)) {
+        //                                    SPUtils.getInstance().put(Constant.SESSION_ID, session_id);//存储session_id
+        //                                }
+        //                                startActivity(new Intent(mContext, MainActivity.class));
+        //                                ((EmptyActivity) mContext).finish();
+        //                            } else {
+        //                                String code = jsonObject.optString("code");
+        //                                String msg = jsonObjectData.optString("msg");
+        //                                ToastUtils.showLong("请求数据失败,请检查网络:" + code + "-" + msg);
+        //                            }
+        //                        } catch (JSONException e) {
+        //                            e.printStackTrace();
+        //                        }
+        //                    }
+        //                });
     }
 
     private class MyTextChangedListener implements TextWatcher {
